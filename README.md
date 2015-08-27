@@ -1,11 +1,12 @@
 # Objetivo del curso
-------------------
+---
 
-El objetivo del curso GAE con  Python via Dojos y Katas es acercar al desarrollador java a usar la plataforma GAE con python así como ver elementos avanzados de la plataforma GAE.
+El objetivo del curso GAE con Python via Dojos y Katas es acercar al desarrollador java a usar  
+la plataforma GAE con python así como ver elementos avanzados de la plataforma GAE.
 
 
 # Conceptos a aprender en el curso
---------------------------------
+---
 
 * Introducción aplicaciones web con python: Hello World con webapp2.
 * Uso de apis gae con python. Datastore, memcache, taskqueue, Search 
