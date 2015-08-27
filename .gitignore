@@ -1,0 +1,26 @@
+# ignore all bin directories
+# matches "bin" in any subfolder
+bin/
+
+# ignore all target directories
+target/
+
+# ignore .settings directories
+.settings/
+
+# ignore .project file
+.project
+
+# ignore .classpath file
+.classpath
+
+# ignore all files ending with ~
+*~ 
+/target
+
+# ignore .sonar files
+.sonar/
+sonar-runner.properties
+.externalToolBuilders
+
+local_db.bin
