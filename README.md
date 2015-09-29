@@ -46,13 +46,13 @@ los gastos e ingresos finales
 
 ## El resultado final podría ser lo siguiente:
 
-Voy a dar caza a los siguientes villanos:
+Voy a dar caza a los siguientes villanos:  
 
-Nombre - puntos de vida - recompensa
-Alberto - 40 puntos de vida - 1200 euros
-Juan - 60 puntos de vida - 2000 euros
-Penelope - 80 puntos de vida - 2400 euros
-Clara - 50 puntos de vida - 2400 euros
+Nombre - puntos de vida - recompensa  
+Alberto - 40 puntos de vida - 1200 euros  
+Juan - 60 puntos de vida - 2000 euros  
+Penelope - 80 puntos de vida - 2400 euros  
+Clara - 50 puntos de vida - 2400 euros  
 
 Lunes  
   
