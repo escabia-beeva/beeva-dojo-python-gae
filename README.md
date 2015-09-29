@@ -24,13 +24,13 @@ Teniendo en cuenta las reglas mencionadas anteriormente y otras nuevas:
 
 * Cuando des caza a un villano, por cada hora que pase atrapándole, se resta un punto de su vida hasta llegar a 0  
 
-* Como quieres ser eficiente en tu trabajo, vas a ir a capturar los villanos que se encuentran más cerca de tu  
-posición, de esa manera conseguirás más ingresos  
+* Como quieres ser eficiente en tu trabajo, vas a ir a capturar los villanos que se encuentran más cerca de tu posición,  
+de esa manera conseguirás más ingresos  
 
 * Cada desplazamiento para capturar a un villano conlleva un coste, debes tenerlo en cuenta  
 
-* El programa debe mostrar el horario que vas a tener con los nombres de los villanos que vas a dar caza y  
-los gastos e ingresos finales
+* El programa debe mostrar el horario que vas a tener con los nombres de los villanos que vas a dar caza y los gastos  
+e ingresos finales
 
 
 ## Notas y pistas
