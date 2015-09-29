@@ -54,27 +54,27 @@ Juan - 60 puntos de vida - 2000 euros
 Penelope - 80 puntos de vida - 2400 euros
 Clara - 50 puntos de vida - 2400 euros
 
-Lunes
-
-0 H - Alberto 40 pv
-1 H - Alberto 39 pv
-2 H - Alberto 38 pv
-...
-23 H - Alberto 16 pv
-
-Martes
-
-0 H - Alberto 15 pv
-1 H - Alberto 14 pv
-...
-15 H - Alberto 0 pv
-16 H - Juan 60 pv
-...
-23 H - Juan 53 pv
-
-Miércoles
-
-0 H - Juan 52 pv
-...
-
+Lunes  
+  
+0 H - Alberto 40 pv  
+1 H - Alberto 39 pv  
+2 H - Alberto 38 pv  
+...  
+23 H - Alberto 16 pv  
+  
+Martes  
+  
+0 H - Alberto 15 pv  
+1 H - Alberto 14 pv  
+...  
+15 H - Alberto 0 pv  
+16 H - Juan 60 pv  
+...  
+23 H - Juan 53 pv  
+  
+Miércoles  
+  
+0 H - Juan 52 pv  
+...  
+  
 Recompensa total ...
