@@ -3,7 +3,7 @@
 python cazarrecompensas.py euros_por_punto_vida gasto_por_distancia maxima_vida limite_criminales_por_chivato distancia_maxima
  
 Ejemplo:
-	python cazarrecompensas.py 30 3 50 10 20
+	python main.py 30 3 50 10 20
 
 
 

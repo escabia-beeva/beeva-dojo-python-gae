@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 __author__ = 'escabia'
 
 
@@ -8,15 +11,9 @@ class Criminal:
         self.distancia = distancia
         self.vida = vida
 
-    def display(self):
-        return self.nom
-
 
 class Chivato:
 
     def __init__(self, distancia):
         self.distancia = distancia
         self.criminales = []
-
-    def output(self):
-        return "Chivato: " + str(self.distancia) + " criminal: " + self.criminal.output()

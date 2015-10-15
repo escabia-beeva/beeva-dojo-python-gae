@@ -1,19 +1,23 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 __author__ = 'escabia'
 
 from random import randint
-from agentes import Criminal
-from agentes import Chivato
-from cazarrecompensas import Captura
-from cazarrecompensas import Cazarrecompensas
 from operator import attrgetter
 import sys
+
 import names
+
+from models.agentes import Criminal
+from models.agentes import Chivato
+from models.cazarrecompensas import Captura
+from models.cazarrecompensas import Cazarrecompensas
 
 DIAS = 7
 HORA_INICIAL = 8
 HORA_FIN = 22
 HORAS_POR_DIA = HORA_FIN - HORA_INICIAL
-TIEMPO_TOTAL = DIAS * HORAS_POR_DIA
 EUROS_POR_PUNTO_DE_VIDA_CRIMINAL = 30
 GASTO_POR_DISTANCIA = 3
 LIMITE_DE_PUNTOS_VIDA_CRIMINAL = 10
@@ -39,7 +43,14 @@ else:
     print "\n"
 
 
-def inicializar_datos_chivatos():
+def almacenaCaptura(agente, cazarrecompensas, tiempo_total):
+    cazarrecompensas.capturas.append(Captura(tiempo_total,agente))
+    cazarrecompensas.gastos += agente.distancia * GASTO_POR_DISTANCIA
+    cazarrecompensas.ingresos += agente.vida * EUROS_POR_PUNTO_DE_VIDA_CRIMINAL
+
+def main():
+    tiempo_total = DIAS * HORAS_POR_DIA
+    posibles_chivatos = []
     for i in range(1,randint(MIN_NUM_CHIVATOS, MAX_NUM_CHIVATOS)):
         if randint(0,1) == 1:
             posibles_chivatos.append(Criminal(names.get_full_name(),randint(1,DISTANCIA_MAXIMA),randint(1,LIMITE_DE_PUNTOS_VIDA_CRIMINAL)))
@@ -48,36 +59,29 @@ def inicializar_datos_chivatos():
             for j in range(1,randint(2,LIMITE_CRIMINALES_CHIVATO)):
                 chivato.criminales.append(Criminal(names.get_full_name(),randint(1,DISTANCIA_MAXIMA),randint(1,LIMITE_DE_PUNTOS_VIDA_CRIMINAL)))
             posibles_chivatos.append(chivato)
+    posibles_chivatos_ordenados = sorted(posibles_chivatos, key=attrgetter('distancia'), reverse=False)
+    criminales_a_visitar = []
+    cazarrecompensas = Cazarrecompensas(HORAS_POR_DIA, HORA_INICIAL)
 
-def almacenaCaptura(agente):
-    cazarrecompensas.capturas.append(Captura(TIEMPO_TOTAL,agente))
-    cazarrecompensas.gastos += agente.distancia * GASTO_POR_DISTANCIA
-    cazarrecompensas.ingresos += agente.vida * EUROS_POR_PUNTO_DE_VIDA_CRIMINAL
+    for posible_chivato in posibles_chivatos_ordenados:
+        if isinstance(posible_chivato, Criminal) and tiempo_total >= int(posible_chivato.vida):
+            tiempo_total -= posible_chivato.vida
+            if tiempo_total > 0:
+                almacenaCaptura(posible_chivato, cazarrecompensas, tiempo_total)
+        else:
+            if hasattr(posible_chivato, 'criminales'):
+                cazarrecompensas.gastos += posible_chivato.distancia * GASTO_POR_DISTANCIA
+                criminales_del_chivato = sorted(posible_chivato.criminales, key=attrgetter('distancia'), reverse=False)
+                for criminal in criminales_del_chivato:
+                    tiempo_total -= criminal.vida
+                    if tiempo_total > 0:
+                        almacenaCaptura(criminal,cazarrecompensas, tiempo_total)
 
-posibles_chivatos = []
-inicializar_datos_chivatos()
-posibles_chivatos_ordenados = sorted(posibles_chivatos, key=attrgetter('distancia'), reverse=False)
-criminales_a_visitar = []
-cazarrecompensas = Cazarrecompensas(HORAS_POR_DIA, HORA_INICIAL)
-
-for posible_chivato in posibles_chivatos_ordenados:
-    if isinstance(posible_chivato, Criminal) and TIEMPO_TOTAL >= int(posible_chivato.vida):
-        TIEMPO_TOTAL -= posible_chivato.vida
-        if TIEMPO_TOTAL > 0:
-            almacenaCaptura(posible_chivato)
-    else:
-        if hasattr(posible_chivato, 'criminales'):
-            cazarrecompensas.gastos += posible_chivato.distancia * GASTO_POR_DISTANCIA
-            criminales_del_chivato = sorted(posible_chivato.criminales, key=attrgetter('distancia'), reverse=False)
-            for criminal in criminales_del_chivato:
-                TIEMPO_TOTAL -= criminal.vida
-                if TIEMPO_TOTAL > 0:
-                    almacenaCaptura(criminal)
-
-cazarrecompensas.display()
+    cazarrecompensas.display()
 
 
-
+if '__main__' == __name__:
+    main()
 
 
 
