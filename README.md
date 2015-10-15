@@ -1,3 +1,27 @@
+# Ejecución
+-----------
+python cazarrecompensas.py euros_por_punto_vida gasto_por_distancia maxima_vida limite_criminales_por_chivato distancia_maxima
+ 
+Ejemplo:
+	python cazarrecompensas.py 30 3 50 10 20
+
+
+
+# Suposiciones 
+--------------
+De la lectura y el análisis del problema enunciado, se han supuesto las siguientes premisas que además de ayudar a completar el enunciado, describen las consideraciones que se han llevado a cabo tanto para el diseño del algoritmo de búsqueda, como para el resto de la solución, para su posterior resolución.
+
+- A priori, el cazarrecompensas conoce la ubicación de todos los posibles chivatos, los cuales en caso de que sean realmente chivatos, conocen el paradero de algunos criminales.
+- El coste por desplazamiento que se lleva por consultar a un chivato se contabiliza, pues no se conoce a priori si será o no realmente un chivato.
+- Se visitará primero a todos los posibles chivatos, que nos darán toda la información del paradero de todos los villanos.
+- El criterio de caza será el más cercano primero, es decir, cuya distancia sea menor y en el caso de que haya criminales a la misma distancia, se irá a por el que tenga una mayor puntuación.
+- Aunque los datos se generan aleatoriamente, se indica un máximo de vida, el límite para el número de villanos que pueden existir y la distancia máxima que puede existir.
+- El número de chivatos será un valor que se generará entre 1 y 10.
+- El horario de captura de los villanos será fijo, desde las 08:00 hasta las 22 horas ininterrumpidamente.
+- Los ingresos se calcularán a partir de la suma de cada villano capturado
+
+
+
 # Kata
 ---
 
